@@ -1,0 +1,40 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+ $rtl-left: left;
+ $rtl-right: right;
+@mixin rtl-base-simple ($property, $direction) {
+  #{$property}:$direction;
+  .rtl & {
+    @if $direction == $rtl-right {
+      #{$property}:$rtl-left;
+    }
+    @else {
+      #{$property}:$rtl-right;
+    }
+  }
+}
+@mixin rtl-float-left () {
+  @include rtl-base-simple(float, $rtl-left);
+}
+.aaa{.pst{
+.megamenu {
+		li {
+			@include rtl-float-left();
+		}
+	}
+}}
+.aaa {
+  .aa{
+    
+    .a{
+      text-align: center;
+      .le &{
+        text-align: left ;
+      }
+    }
+  
+  }
+}
